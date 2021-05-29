@@ -1,4 +1,11 @@
 var timeBlock = $(".time-block");
+var currentDay = $("#currentDay");
+
+//Show day of the week and date
+function showCurrentDate() {
+  var curTime = moment().format("dddd, MMMM Do");
+  currentDay.text(curTime);
+}
 
 //Get current time and color blocks accordingly
 function getTime() {
@@ -38,4 +45,4 @@ timeBlock.on("click", "#save", function (event) {
   localStorage.setItem(hour, JSON.stringify(saveData));
 });
 
-$(document).ready(showData(), getTime());
+$(document).ready(showData(), getTime(), showCurrentDate());
