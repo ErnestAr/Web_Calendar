@@ -1,5 +1,6 @@
 var timeBlock = $(".time-block");
 
+//Get current time and color blocks accordingly
 function getTime() {
   var hour = moment().format("HH");
   timeBlock.each(function (index) {
@@ -15,6 +16,7 @@ function getTime() {
   });
 }
 
+//SHow Locally stored data for each block if there is any
 function showData() {
   timeBlock.each(function (index) {
     var block = $(this).children().eq(1);
@@ -28,6 +30,7 @@ function showData() {
   });
 }
 
+//Save data on button click
 timeBlock.on("click", "#save", function (event) {
   var textItem = $(this).parent().children().eq(1);
   var saveData = textItem.val();
