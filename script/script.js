@@ -19,22 +19,21 @@ var storedData = {
 
 
 function getTime() {
-    var hour = moment().format("h")
-    console.log(hour);
+    var hour = moment().format("H")
+     console.log(hour);
     timeBlock.each(function( index ) {
-        var block = $(this).children().eq(1)[index];
+         var block = $(this).children().eq(1)
         var currentId = $(this).children().eq(1).attr("id")
-        console.log(currentId);
+         console.log(currentId);
         console.log(block);
-        console.log(timeBlock);
-        if(currentId===hour) {
-            block.addClass("first");
-        } else if (currentId < hour) {
+         console.log(timeBlock);
+         if(currentId===hour) {
+            block.addClass("present");
+         } else if (currentId < hour) {
             block.addClass("past");
-
-        } else if (currentId > hour) {
+         } else if (currentId > hour) {
             block.addClass("future");
-        }
+         }
     }
     )}
 
