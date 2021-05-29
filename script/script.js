@@ -18,8 +18,27 @@ var storedData = {
 
 
 
-// getTime()
+function getTime() {
+    var hour = moment().format("h")
+    console.log(hour);
+    timeBlock.each(function( index ) {
+        var block = $(this).children().eq(1)[index];
+        var currentId = $(this).children().eq(1).attr("id")
+        console.log(currentId);
+        console.log(block);
+        console.log(timeBlock);
+        if(currentId===hour) {
+            block.addClass("first");
+        } else if (currentId < hour) {
+            block.addClass("past");
 
+        } else if (currentId > hour) {
+            block.addClass("future");
+        }
+    }
+    )}
+
+getTime()
 
 // showData()
 
@@ -42,3 +61,4 @@ timeBlock.on("click", ("#save"), function(event) {
     storedData[hour] = saveData;
     storeData();
 })
+
